@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 6</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/5fc4420cfa.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <div onclick="reloadPage()" class="text-black flex text-2xl font-bold bg-1r cursor-pointer">
+          <img class="mr-2" src="./asest/logo.webp">Paddy
+        </div>
+        <!-- End Logo -->
+
+        <!-- Profile -->
+        <div class="hidden md:flex space-x-4">
+          <a onclick="reloadPage()" href="#" class="text-black mr-2">Home</a>
+          <a href="#" class="text-black mr-2">Shop</a>
+          <a href="#footer" class="text-black">Contact</a>
+        </div>
+
+        <div class="dropdown dropdown-end">
+          <div tabindex="0" class="cursor-pointer">
+            <i class="fa-regular fa-circle-user fa-xl"></i>
+          </div>
+          <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 md:hidden">
+            <li><a onclick="reloadPage()" href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#footer">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Profile End -->
+
+      </div>
+    </nav>
+
+
+
+    <!-- Banner Section -->
+    <section class="welcome h-screen flex items-center justify-center">
+      <div class="container mx-auto text-center">
+        <p class="text-gray-500 text-[20px] font-extrabold">Bringing Families Together ❤️‍🔥 </p>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">
+          Your Path to Adoption <br>Starts Here
+        </h1>
+        <p class="text-lg md:text-2xl mb-8">Your best friend is waiting for you~</p>
+        <a href="#adopt-section"
+          class="bg-emerald-700 text-white py-4 px-8 rounded-lg font-semibold hover:bg-emerald-900 transition duration-200 text-[20px]">
+          View More
+        </a>
+      </div>
+
+    </section>
+    <!-- Not so Hero Picture -->
+    <div>
+      <img class="heropet" src="./asest/pet.webp" alt="">
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Adopt Your Best Friend -->
+    <section id="adopt-section" class="py-16 bg-slate-50">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">Adopt Your Best Friend</h2>
+        <p class="text-lg text-gray-600 mb-8">Find the perfect companion for you!</p>
+
+
+        <div class="flex justify-center space-x-4 mb-8">
+          <button id="gt-dog" class="category-btn">Dogs</button>
+          <button id="gt-cat" class="category-btn">Cats</button>
+          <button id="gt-buny" class="category-btn">Rabbits</button>
+          <button id="gt-bird" class="category-btn">Birds</button>
+        </div>
+
+    </section>
+
+
+
+
+
+  </main>
+
+
+
+  <footer id="footer">
+    <h1>onclick="reloadPage()"</h1>
+  </footer>
+</body>
+<script src="./script.js"></script>
+
+</html>

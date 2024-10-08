@@ -47,6 +47,9 @@
     padding: 1rem 1rem;
     border: 2px solid #eaeaea;
   }
+  #adopt-box {
+    display: none;
+  }
 }
 .bg-1r {
   border: 3px solid transparent;

@@ -81,23 +81,93 @@
           <button id="gt-dog" class="category-btn">Dogs</button>
           <button id="gt-cat" class="category-btn">Cats</button>
           <button id="gt-buny" class="category-btn">Rabbits</button>
-          <button id="gt-bird" class="category-btn">Birds</button>
+          <button id="button" class="category-btn">Birds</button>
         </div>
 
     </section>
+    <!-- Pets -->
+    <div class="container mx-auto flex">
+      <!-- Pet Cards -->
+      <div id="pet-cards" class="grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 flex-grow"></div>
 
+      <!-- Adopt Box -->
+      <div id="adopt-box" class="w-[400px] h-auto border border-gray-300 p-4 ml-4">
+        <h2 class="text-2xl font-semibold mb-4">Selected Pet</h2>
+        <img id="adopt-img" src="" alt="No pet selected" class="w-full h-auto object-cover mb-4">
+        <p id="adopt-name" class="text-xl font-medium">No pet selected</p>
+      </div>
+    </div>
 
-
-
+    <!-- pet pop up card -->
+    <div id="pet-modal" class="modal">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg" id="modal-title"></h3>
+        <img id="modal-img" class="w-full h-40 object-cover" alt="Pet Image" />
+        <p id="modal-breed"></p>
+        <p id="modal-birth"></p>
+        <p id="modal-gender"></p>
+        <p id="modal-price"></p>
+        <div class="modal-action">
+          <button class="btn" onclick="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
 
   </main>
+  <!-- Pets End -->
 
 
-
-  <footer id="footer">
-    <h1>onclick="reloadPage()"</h1>
+  <footer id="footer" class="footer bg-slate-900 text-white p-10">
+    <nav>
+      <h6 class="footer-title">
+        <div onclick="reloadPage()" class="text-white flex text-2xl font-bold bg-1r cursor-pointer">
+          <img class="mr-2" src="./asest/logo.webp">Paddy
+        </div>
+      </h6>
+      <a class="link link-hover"> Location: av. Washington 165, NY CA 54003</a>
+      <a class="link link-hover">Phone: +31 85 964 47 25</a>
+      <a class="link link-hover">Email: info@yourdomain.com</a>
+      <a class="link link-hover">Openings hours: 9.00 AM - 5.00 PM</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">Useful Links</h6>
+      <a class="link link-hover">About us</a>
+      <a class="link link-hover">Contact</a>
+      <a class="link link-hover">Animals</a>
+      <a class="link link-hover">Foundation</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">Social</h6>
+      <div class="grid grid-flow-col gap-4">
+        <a>
+          <img class="cursor-pointer" src="./asest/Frame 30.png" alt="">
+        </a>
+      </div>
+    </nav>
   </footer>
 </body>
 <script src="./script.js"></script>
+
+
+
+
+<style>
+  .contain {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #adopt-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  #adopt-box {
+    width: 400px;
+    min-height: 200px;
+    background-color: #f9f9f9;
+  }
+</style>
 
 </html>

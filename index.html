@@ -77,14 +77,26 @@
         <p class="text-lg text-gray-600 mb-8">Find the perfect companion for you!</p>
 
 
-        <div class="flex justify-center space-x-4 mb-8">
-          <button id="gt-dog" class="category-btn">Dogs</button>
-          <button id="gt-cat" class="category-btn">Cats</button>
-          <button id="gt-buny" class="category-btn">Rabbits</button>
-          <button id="button" class="category-btn">Birds</button>
+        <!-- Category Buttons with Rabbits -->
+        <div class="pota flex justify-center space-x-4 mb-8">
+          <button class="category-btn flex items-center" onclick="fetchCategoryData('cats')"><img class="scale-60 mr-2"
+              src="./asest/cat.png" alt=""> Cats</button>
+          <button class="category-btn flex items-center" onclick="fetchCategoryData('dogs')"><img class="scale-60 mr-2"
+              src="./asest/dog.png" alt=""> Dogs</button>
+          <button class="category-btn flex items-center" onclick="fetchCategoryData('birds')"><img class="scale-60 mr-2"
+              src="./asest/bird.png" alt=""> Birds</button>
+          <button class="category-btn flex items-center" onclick="fetchCategoryData('rabbits')"><img
+              class="scale-60 mr-2" src="./asest/rabbit.png" alt=""> Rabbits</button> <!-- Rabbits button added -->
         </div>
-
     </section>
+
+    <!-- Short by price -->
+    <h1 class="w-[209px] h-auto font-black text-2xl relative  left-52 ">Best Deal For you</h1>
+
+    <button onclick="sortByPrice()"
+      class="bg-emerald-700 text-white py-3 px-6 rounded-lg font-semibold hover:bg-emerald-900 transition duration-200 text-[16px] relative left-[58%] top-[-20px]">
+      Short by price</button>
+
     <!-- Pets -->
     <div class="container mx-auto flex">
       <!-- Pet Cards -->
@@ -92,26 +104,23 @@
 
       <!-- Adopt Box -->
       <div id="adopt-box" class="w-[400px] h-auto border border-gray-300 p-4 ml-4">
-        <h2 class="text-2xl font-semibold mb-4">Selected Pet</h2>
-        <img id="adopt-img" src="" alt="No pet selected" class="w-full h-auto object-cover mb-4">
-        <p id="adopt-name" class="text-xl font-medium">No pet selected</p>
-      </div>
-    </div>
 
-    <!-- pet pop up card -->
-    <div id="pet-modal" class="modal">
-      <div class="modal-box">
-        <h3 class="font-bold text-lg" id="modal-title"></h3>
-        <img id="modal-img" class="w-full h-40 object-cover" alt="Pet Image" />
-        <p id="modal-breed"></p>
-        <p id="modal-birth"></p>
-        <p id="modal-gender"></p>
-        <p id="modal-price"></p>
-        <div class="modal-action">
-          <button class="btn" onclick="closeModal()">Close</button>
+      </div>
+
+      <!-- pet pop up card -->
+      <div id="pet-modal" class="modal">
+        <div class="modal-box">
+          <h3 class="font-bold text-lg" id="modal-title"></h3>
+          <img id="modal-img" class="w-full h-40 object-cover" alt="Pet Image" />
+          <p id="modal-breed"></p>
+          <p id="modal-birth"></p>
+          <p id="modal-gender"></p>
+          <p id="modal-price"></p>
+          <div class="modal-action">
+            <button class="btn" onclick="closeModal()"></button>
+          </div>
         </div>
       </div>
-    </div>
 
   </main>
   <!-- Pets End -->

@@ -28,7 +28,7 @@
 }
 
 /* whig-------------------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 568px) {
   .heropet {
     margin: 0 auto;
     border: 1px solid transparent;
@@ -48,6 +48,9 @@
     border: 2px solid #eaeaea;
   }
   #adopt-box {
+    display: none;
+  }
+  .pota img {
     display: none;
   }
 }

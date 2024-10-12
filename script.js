@@ -1,18 +1,16 @@
 let petData = [];
 
-// Simulate loading by waiting for at least 2 seconds
 function simulateLoading() {
   return new Promise((resolve) => setTimeout(resolve, 2000));
 }
 
-// Fetch all pets on page load
 async function fetchAllPets() {
-  showLoadingSpinner(); // Show loading spinner
+  showLoadingSpinner();
 
   const url = "https://openapi.programming-hero.com/api/peddy/pets";
 
-  await simulateLoading(); // Simulate API delay
-  hideLoadingSpinner(); // Hide loading spinner
+  await simulateLoading();
+  hideLoadingSpinner();
 
   try {
     const response = await fetch(url);
@@ -20,8 +18,9 @@ async function fetchAllPets() {
 
     const { pets } = await response.json();
     petData = pets;
-    displayPets(petData); // Display pets once data is fetched
+    displayPets(petData);
   } catch (error) {
+    alert("Sorry, Your internet is slow");
     console.error("Error loading all pets:", error);
   }
 }
@@ -49,7 +48,7 @@ function displayPets(pets) {
             pet.price ? `${pet.price} BDT` : "Contact for price"
           }</p>
           <div class="card-actions justify-end">
-           <i class="fa-regular fa-thumbs-up fa-lg relative top-[25px] left-[-50px] cursor-pointer"></i>
+            <i class="fa-regular fa-thumbs-up fa-lg relative top-[25px] left-[-50px] cursor-pointer"></i>
             <button class="btn btn-primary bg-slate-100 text-emerald-700 hover:text-white" 
               onclick='showAdoptPopup(${JSON.stringify(pet).replace(
                 /"/g,
@@ -72,23 +71,20 @@ function displayPets(pets) {
   });
 }
 
-// Call the function to fetch all pets when the page loads
 window.onload = function () {
-  fetchAllPets(); // Fetch and display all pets
+  fetchAllPets();
 };
 
-// Sort pets by price
 function sortByPrice() {
-  showLoadingSpinner(); // Show loading spinner
+  showLoadingSpinner();
 
   setTimeout(() => {
     const sortedPets = [...petData].sort((a, b) => b.price - a.price);
-    hideLoadingSpinner(); // Hide loading spinner
+    hideLoadingSpinner();
     displayPets(sortedPets);
-  }, 2000); // Wait for 2 seconds before displaying sorted data
+  }, 2000);
 }
 
-// Show adopt popup with countdown
 function showAdoptPopup(pet) {
   const popup = document.createElement("div");
   popup.className = "popup";
@@ -114,7 +110,6 @@ function showAdoptPopup(pet) {
   }, 1000);
 }
 
-// Show loading spinner
 function showLoadingSpinner() {
   const spinner = document.createElement("div");
   spinner.className =
@@ -124,7 +119,6 @@ function showLoadingSpinner() {
   document.body.appendChild(spinner);
 }
 
-// Hide loading spinner
 function hideLoadingSpinner() {
   const spinner = document.getElementById("loading-spinner");
   if (spinner) {
@@ -154,22 +148,21 @@ function closeModal() {
   document.getElementById("pet-modal").classList.remove("modal-open");
 }
 
-// Fetch category data based on button click
 async function fetchCategoryData(category) {
-  showLoadingSpinner(); // Show loading spinner
+  showLoadingSpinner();
 
   let url = "";
   switch (category) {
     case "cat":
       url = "https://openapi.programming-hero.com/api/peddy/category/cat";
       break;
-    case "dog":
+    case "dogs":
       url = "https://openapi.programming-hero.com/api/peddy/category/dog";
       break;
-    case "bird":
+    case "birds":
       url = "https://openapi.programming-hero.com/api/peddy/category/bird";
       break;
-    case "rabbit":
+    case "rabbits":
       url = "https://openapi.programming-hero.com/api/peddy/category/rabbit";
       break;
     default:
@@ -177,31 +170,13 @@ async function fetchCategoryData(category) {
       return;
   }
 
-  await simulateLoading(); // Simulate API delay
-  hideLoadingSpinner(); // Hide loading spinner
+  await simulateLoading();
+  hideLoadingSpinner();
 
   try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Failed to fetch pets");
-
-    const { pets } = await response.json();
-    petData = pets;
-    displayPets(petData); // Display pets once data is fetched
+    await fetchData(url);
   } catch (error) {
-    console.error("Error loading pet data:", error);
+    alert("Sorry, Your internet is slow");
+    console.error("Error fetching category data:", error);
   }
 }
-
-// Event listeners for category buttons
-document
-  .getElementById("cat-button")
-  .addEventListener("click", () => fetchCategoryData("cat"));
-document
-  .getElementById("dog-button")
-  .addEventListener("click", () => fetchCategoryData("dog"));
-document
-  .getElementById("bird-button")
-  .addEventListener("click", () => fetchCategoryData("bird"));
-document
-  .getElementById("rabbit-button")
-  .addEventListener("click", () => fetchCategoryData("rabbit"));

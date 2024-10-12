@@ -39,10 +39,10 @@ function displayPets(pets) {
             pet.breed || "Unknown"
           }</p>
           <p><i class="fa-regular fa-calendar-days"></i> Birth: ${
-            pet.date_of_birth || "Unknown"
+            pet.date_of_birth || "Not available"
           }</p>
           <p><i class="fa-solid fa-venus-mars"></i> Gender: ${
-            pet.gender || "Unknown"
+            pet.gender || "Not available"
           }</p>
           <p><i class="fa-solid fa-dollar-sign"></i> Price: ${
             pet.price ? `${pet.price} BDT` : "Contact for price"
@@ -130,13 +130,13 @@ function openModal(pet) {
   document.getElementById("modal-title").innerText = pet.pet_name;
   document.getElementById("modal-img").src = pet.image;
   document.getElementById("modal-breed").innerText = `Breed: ${
-    pet.breed || "Unknown"
+    pet.breed || "Not available"
   }`;
   document.getElementById("modal-birth").innerText = `Birth: ${
-    pet.date_of_birth || "Unknown"
+    pet.date_of_birth || "Not available"
   }`;
   document.getElementById("modal-gender").innerText = `Gender: ${
-    pet.gender || "Unknown"
+    pet.gender || "Not available"
   }`;
   document.getElementById("modal-price").innerText = `Price: ${
     pet.price ? `${pet.price} BDT` : "Contact for price"

@@ -49,6 +49,7 @@ function displayPets(pets) {
             pet.price ? `${pet.price} BDT` : "Contact for price"
           }</p>
           <div class="card-actions justify-end">
+           <i class="fa-regular fa-thumbs-up fa-lg relative top-[25px] left-[-50px] cursor-pointer"></i>
             <button class="btn btn-primary bg-slate-100 text-emerald-700 hover:text-white" 
               onclick='showAdoptPopup(${JSON.stringify(pet).replace(
                 /"/g,
@@ -152,3 +153,55 @@ function openModal(pet) {
 function closeModal() {
   document.getElementById("pet-modal").classList.remove("modal-open");
 }
+
+// Fetch category data based on button click
+async function fetchCategoryData(category) {
+  showLoadingSpinner(); // Show loading spinner
+
+  let url = "";
+  switch (category) {
+    case "cat":
+      url = "https://openapi.programming-hero.com/api/peddy/category/cat";
+      break;
+    case "dog":
+      url = "https://openapi.programming-hero.com/api/peddy/category/dog";
+      break;
+    case "bird":
+      url = "https://openapi.programming-hero.com/api/peddy/category/bird";
+      break;
+    case "rabbit":
+      url = "https://openapi.programming-hero.com/api/peddy/category/rabbit";
+      break;
+    default:
+      console.error("Unknown category:", category);
+      return;
+  }
+
+  await simulateLoading(); // Simulate API delay
+  hideLoadingSpinner(); // Hide loading spinner
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("Failed to fetch pets");
+
+    const { pets } = await response.json();
+    petData = pets;
+    displayPets(petData); // Display pets once data is fetched
+  } catch (error) {
+    console.error("Error loading pet data:", error);
+  }
+}
+
+// Event listeners for category buttons
+document
+  .getElementById("cat-button")
+  .addEventListener("click", () => fetchCategoryData("cat"));
+document
+  .getElementById("dog-button")
+  .addEventListener("click", () => fetchCategoryData("dog"));
+document
+  .getElementById("bird-button")
+  .addEventListener("click", () => fetchCategoryData("bird"));
+document
+  .getElementById("rabbit-button")
+  .addEventListener("click", () => fetchCategoryData("rabbit"));

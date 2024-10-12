@@ -79,13 +79,16 @@
 
         <!-- Category Buttons with Rabbits -->
         <div class="pota flex justify-center space-x-4 mb-8">
-          <button class="category-btn flex items-center" onclick="fetchCategoryData('cats')"><img class="scale-60 mr-2"
-              src="./asest/cat.png" alt=""> Cats</button>
-          <button class="category-btn flex items-center" onclick="fetchCategoryData('dogs')"><img class="scale-60 mr-2"
-              src="./asest/dog.png" alt=""> Dogs</button>
-          <button class="category-btn flex items-center" onclick="fetchCategoryData('birds')"><img class="scale-60 mr-2"
+          <button id="cat-button" class="category-btn flex items-center" onclick="fetchCategoryData('cat')"><img
+              class="scale-60 mr-2" src="./asest/cat.png" alt=""> Cats</button>
+          <button id="dog-button" class="category-btn flex items-center" onclick="fetchCategoryData('dogs')"><img
+              class="scale-60 mr-2" src="./asest/dog.png" alt=""> Dogs</button>
+
+
+          <button class="category-btn flex items-center" onclick="fetchCategoryData('bird')"><img class="scale-60 mr-2"
               src="./asest/bird.png" alt=""> Birds</button>
-          <button class="category-btn flex items-center" onclick="fetchCategoryData('rabbits')"><img
+
+          <button id="rabbit-button" class="category-btn flex items-center" onclick="fetchCategoryData('rabbit')"><img
               class="scale-60 mr-2" src="./asest/rabbit.png" alt=""> Rabbits</button> <!-- Rabbits button added -->
         </div>
     </section>
